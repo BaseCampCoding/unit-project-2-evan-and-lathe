@@ -4,19 +4,21 @@ class true_false:
         self.response = response
 
 
-
 class multiple_choice:
-    def __init__(self, qone, qtwo):
+    def __init__(self, prompt, qone, qtwo, qthree, qfour, qfive):
+        self.prompt = prompt
 
 
 class numerical:
-    def __init__(self, num):
+    def __init__(self, prompt, num):
+        self.prompt = prompt
         self.num = num
+
+    def num_answer(self, num):
+        return
 
 
 class fill_blank:
-    def __init__(self, word):
-       self.word = word
-
-        
-
+    def __init__(self, prompt, word):
+        self.prompt = prompt
+        self.word = word
