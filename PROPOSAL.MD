@@ -15,7 +15,10 @@ The main features in our program will consist of the user writing over and delet
 By the end of Tuesday, we want to establish the question type classes. Each type of question is going to take various type of formatting in class for later reference, and if this is accomplished early on, this will make the rest of the week much easier. We should also be able to accomplish most of the "creation" process by making 
 
 ### Wednesday
-we will be writing code for editing content within the questions, returning the form for the user to review, and making various templates from the established classes. 
+Lathe will be writing code for editing content within the questions, Evan will work on returning the form for the user to review and making various templates from the established classes. 
 
 ### Thursday
-This day will be reserved for finalizing save functions to datatbases and testing for bugs.
+This day will be reserved for finalizing save functions to datatbases and testing for bugs. Lathe will be making sure the databases written with sqlite are functioning properly and Evan will be writing input loops for each step of the program and checking for factors we may not have seen.
+
+## How we will utilize the content
+Evan and myself will be making much use of databases, classes, and file transfers for the majority of this project. Throughout the process of writing, we will have to use a little of everything we have learned thus far.
