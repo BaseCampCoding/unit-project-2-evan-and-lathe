@@ -22,6 +22,7 @@ class numerical:
     def __init__(self, prompt, num, answer):
         self.prompt = prompt
         self.num = num
+        self.answer = answer
 
     def num_answer(self, answer):
         return self == answer
@@ -35,3 +36,4 @@ class fill_blank:
 
     def fill_blank_answer(self, answer):
         return self == answer
+
