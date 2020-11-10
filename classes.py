@@ -7,7 +7,8 @@ class true_false:
     def true_false_answers(self, answer):
         return self == answer
 
-
+m_questions = []
+m_answers = []
 class multiple_choice:
     def __init__(self, prompt, questions, answers):
         self.prompt = prompt

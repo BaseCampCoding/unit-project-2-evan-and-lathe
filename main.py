@@ -1,19 +1,20 @@
-print("WELCOME TO QUIZZER")
+import classes
+import doclear
 
+print("WELCOME TO QUIZZER")
 
 
 while True:
     name = input("What would you like to name your quiz?: ")
     correct_input = input("Your quiz is called " + name + " is this correct?: ")
     if correct_input.upper() == "YES":
-        print("ok")
         break
     elif correct_input.upper() == "NO":
         continue
-            
-print("How are you?")
 
-how_many_tf = input("How many True/False questions would you like")
+how_many_tf = input("How many True/False questions would you like?")
+prompt_tf = input("What would you like the question to be?")
+response_tf = input("What would you like the response to be")
 
 how_many_num = input("How many numerical answer questions would you like?")
 
