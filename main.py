@@ -52,10 +52,7 @@ for e in range(how_many_tf):
             print("Yes")
             f += 1
         else:
-            print("No")
             f += 1
-
-        
 
 
 # how_many_num = input("How many numerical answer questions would you like?")
