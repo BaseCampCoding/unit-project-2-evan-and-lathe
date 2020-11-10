@@ -14,7 +14,11 @@ while True:
         continue
 
 #True/False questions
-tf_list = []
+cb = sqlite3.connect('quizzes.db')
+cur = cb.cursor()
+
+cur.execute("""CREATE TABLE if not exists TFquestions(Prompt TEXT, Response TEXT, Answer TEXT) """)
+
 how_many_tf = input("How many True/False questions would you like?")
 how_many_tf = int(how_many_tf)
 all_tf_questions = []
@@ -25,13 +29,16 @@ for i in range(how_many_tf):
     tf_questions = classes.true_false(prompt_tf, None, answer_tf)
     all_tf_questions.append(tf_questions)
     print(all_tf_questions)
+    for c in tf_questions:
+        cur.execute('INSERT INTO TFquestions VALUES(?,?,?)', c[0], c[1], c[2])
 
-cb = 
 
 
 
-how_many_num = input("How many numerical answer questions would you like?")
 
-how_many_multiple = input("How many multiple choice questions would you like?")
 
-how_many_fib = input("How many fill in the blank questions would you like?")
+# how_many_num = input("How many numerical answer questions would you like?")
+
+# how_many_multiple = input("How many multiple choice questions would you like?")
+
+# how_many_fib = input("How many fill in the blank questions would you like?")
