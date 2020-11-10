@@ -45,13 +45,17 @@ for i in all_tf_questions:
 for e in range(how_many_tf):
     answer = input("Answer: ")
     f = 0
+    is_correct = answer == all_tf_answers[e]
+
     while f < how_many_tf:
         if answer == all_tf_answers[f]:
             print("Yes")
-            break
+            f += 1
         else:
             print("No")
-            break
+            f += 1
+
+        
 
 
 # how_many_num = input("How many numerical answer questions would you like?")
