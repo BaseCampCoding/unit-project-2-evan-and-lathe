@@ -1,5 +1,6 @@
 import classes
 import doclear
+import sqlite3
 
 print("WELCOME TO QUIZZER")
 
@@ -13,12 +14,19 @@ while True:
         continue
 
 #True/False questions
+tf_list = []
 how_many_tf = input("How many True/False questions would you like?")
-prompt_tf = input("What would you like the question to be?")
-#response_tf = input( )
-answer_tf = input("What is the correct answer?")
+how_many_tf = int(how_many_tf)
+all_tf_questions = []
+for i in range(how_many_tf):
+    prompt_tf = input("What would you like the question to say?")
+    #response_tf = input( )
+    answer_tf = input("What is the correct answer?")
+    tf_questions = classes.true_false(prompt_tf, None, answer_tf)
+    all_tf_questions.append(tf_questions)
+    print(all_tf_questions)
 
-tf_questions = true_false(prompt_tf, input(), answer_tf)
+cb = 
 
 
 
