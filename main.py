@@ -1,4 +1,8 @@
+import classes
+import doclear
+
 print("WELCOME TO QUIZZER")
+
 
 
 def funct1():
@@ -15,6 +19,16 @@ def funct1():
 funct1()
 print("How are you?")
 
-how_many_tf = input("How many True/False questions would you like")
+how_many_tf = input("How many True/False questions would you like?")
+prompt_tf = input("What would you like the question to be?")
+response_tf = 
+
+
 
 how_many_num = input("How many numerical answer questions would you like?")
+
+
+
+
+
+
