@@ -7,8 +7,14 @@ class true_false:
     def true_false_answers(self, answer):
         return self == answer
 
+    def __str__(self):
+        return "{self.prompt}".format(self=self)
+
+
 m_questions = []
 m_answers = []
+
+
 class multiple_choice:
     def __init__(self, prompt, questions, answers):
         self.prompt = prompt
@@ -37,4 +43,3 @@ class fill_blank:
 
     def fill_blank_answer(self, answer):
         return self == answer
-

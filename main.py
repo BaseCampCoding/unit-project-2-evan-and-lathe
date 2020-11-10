@@ -13,28 +13,45 @@ while True:
     elif correct_input.upper() == "NO":
         continue
 
-#True/False questions
-cb = sqlite3.connect('quizzes.db')
+# True/False questions
+cb = sqlite3.connect("quizzes.db")
 cur = cb.cursor()
 
-cur.execute("""CREATE TABLE if not exists TFquestions(Prompt TEXT, Response TEXT, Answer TEXT) """)
+cur.execute(
+    """CREATE TABLE if not exists TFquestions(Prompt TEXT, Response TEXT, Answer TEXT) """
+)
 
-how_many_tf = input("How many True/False questions would you like?")
+how_many_tf = input("How many True/False questions would you like? ")
 how_many_tf = int(how_many_tf)
 all_tf_questions = []
+all_tf_answers = []
 for i in range(how_many_tf):
-    prompt_tf = input("What would you like the question to say?")
-    #response_tf = input( )
-    answer_tf = input("What is the correct answer?")
+    prompt_tf = input("What would you like the question to say? ")
+    # response_tf = input( )
+    answer_tf = input("What is the correct answer? ")
     tf_questions = classes.true_false(prompt_tf, None, answer_tf)
     all_tf_questions.append(tf_questions)
-    print(all_tf_questions)
-    for c in tf_questions:
-        cur.execute('INSERT INTO TFquestions VALUES(?,?,?)', c[0], c[1], c[2])
+    all_tf_answers.append(answer_tf)
 
 
+# Presenting quiz
+Fin = input("Would you like to see the quiz? [Y/N] ")
+Fin.upper()
+if Fin == "Y":
+    str(all_tf_questions)
+for i in all_tf_questions:
+    print(i)
 
-
+for e in range(how_many_tf):
+    answer = input("Answer: ")
+    f = 0
+    while f < how_many_tf:
+        if answer == all_tf_answers[f]:
+            print("Yes")
+            break
+        else:
+            print("No")
+            break
 
 
 # how_many_num = input("How many numerical answer questions would you like?")
