@@ -19,9 +19,13 @@ def funct1():
 funct1()
 print("How are you?")
 
+#True/False questions
 how_many_tf = input("How many True/False questions would you like?")
 prompt_tf = input("What would you like the question to be?")
-response_tf = 
+#response_tf = input( )
+answer_tf = input("What is the correct answer?")
+
+tf_questions = true_false(prompt_tf, input(), answer_tf)
 
 
 
