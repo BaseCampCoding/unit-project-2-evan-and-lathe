@@ -20,7 +20,7 @@ for i in range(how_many_fb):
 
 # Multiple choice questions
 
-how_many_mc = input("How many mc questions would you like? ")
+how_many_mc = input("How many multiple choice questions would you like? ")
 how_many_mc = int(how_many_mc)
 all_mc_questions = []
 all_mc_choices = []
