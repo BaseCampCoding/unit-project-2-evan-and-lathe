@@ -1,6 +1,7 @@
 import classes
 import doclear
 import sqlite3
+
 # fill in the blank questions
 how_many_fb = input("How many fill in the blank questions would you like? ")
 how_many_fb = int(how_many_fb)
@@ -15,11 +16,13 @@ for i in range(how_many_fb):
     all_fb_answers.append(fb_questions.answer)
 
 # presenting quiz
-print("Here is your quiz")
+print("Here is your quiz. \nAnswer the questions in chronological order ")
 
-for question in all_fb_questions:
-    fb_user_question = print(fb_questions.prompt + "\n")
-    # if fb_user_question == fb_questions.answer:
-    #     print ("That's right")
-    # else:
-    #     print("Incorrect") 
+for i in all_fb_answers:
+    print(all_fb_questions)
+    fb_user_input = input("\nAnswer:")
+    if fb_user_input == i:
+        print("That's right")
+        print("--------")
+    else:
+        print("Incorrect")
