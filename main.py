@@ -16,6 +16,31 @@ while True:
     elif correct_input.upper() == "NO":
         continue
 
+template = input("Would you like to use a template?: ")
+if template.upper() == "YES":
+    choice = input("Type the number of which template you want. \n"
+        "1) 10 multiple choice questions \n"
+        "2) 5 fill in the blank questions \n"
+        "3) 6 True/False questions. \n"
+        "Choice:  ")
+    if choice == 3:
+        tf = 6
+        for i in range(tf):
+            prompt_tf = input("What would you like the true/false question to say? ")
+        while True: 
+            print("Please input either True or False for your answer.")
+            answer_tf = input("What is the correct answer? ")
+            if answer_tf == "True":
+                break
+            if answer_tf == "False":
+                break
+        # tf_questions = classes.true_false(prompt_tf, None, answer_tf)
+        all_tf_questions.append(prompt_tf) #(prompt_Tf used to be tf_questions)
+        all_tf_answers.append(answer_tf)
+
+elif template.upper() == "NO":
+    pass
+
 # True/False questions
 cb = sqlite3.connect("quizzes.db")
 cur = cb.cursor()
@@ -94,13 +119,13 @@ for a in range(how_many_num):
 
 # cur.execute('CREATE TABLE Numerical("Questions" TEXT, "Answers" TEXT)')
 # cur.execute('CREATE TABLE TrueFalse("Questions" TEXT, "Answers" TEXT)')
-strquestions = json.dumps(all_tf_questions)
-stranswers = json.dumps(all_tf_answers)
+# strquestions = json.dumps(all_tf_questions)
+# stranswers = json.dumps(all_tf_answers)
 
-cur.execute('INSERT INTO Numerical VALUES(?, ?)', (strquestions, stranswers))
-cur.execute('SELECT Questions, Answers FROM Numerical')
-print(cur.fetchall())
-con.commit()
+# cur.execute('INSERT INTO Numerical VALUES(?, ?)', (strquestions, stranswers))
+# cur.execute('SELECT Questions, Answers FROM Numerical')
+# print(cur.fetchall())
+# con.commit()
 
 
 
