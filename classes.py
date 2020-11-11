@@ -16,10 +16,11 @@ m_answers = []
 
 
 class multiple_choice:
-    def __init__(self, prompt, questions, answers):
+    def __init__(self, prompt, questions, choices, answer):
         self.prompt = prompt
         self.questions = questions
-        self.answers = answers
+        self.choices = choices
+        self.answer = answer
 
     def multiple_choice_answers(self, answers):
         return self == answers
@@ -46,7 +47,7 @@ class fill_blank:
 
     def fill_blank_answer(self, answer):
         return self == answer
-    
+
     def __str__(self):
         print(f"{self.prompt}, {self.word}, {self.answer}")
 
