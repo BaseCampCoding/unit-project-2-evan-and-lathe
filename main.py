@@ -23,17 +23,16 @@ if template.upper() == "YES":
         "2) 5 fill in the blank questions \n"
         "3) 6 True/False questions. \n"
         "Choice:  ")
-    if choice == 3:
-        tf = 6
-        for i in range(tf):
+    if choice == "3":
+        for i in range(6):
             prompt_tf = input("What would you like the true/false question to say? ")
-        while True: 
-            print("Please input either True or False for your answer.")
-            answer_tf = input("What is the correct answer? ")
-            if answer_tf == "True":
-                break
-            if answer_tf == "False":
-                break
+            while True: 
+                print("Please input either True or False for your answer.")
+                answer_tf = input("What is the correct answer? ")
+                if answer_tf == "True":
+                    break
+                if answer_tf == "False":
+                    break
         # tf_questions = classes.true_false(prompt_tf, None, answer_tf)
         all_tf_questions.append(prompt_tf) #(prompt_Tf used to be tf_questions)
         all_tf_answers.append(answer_tf)
