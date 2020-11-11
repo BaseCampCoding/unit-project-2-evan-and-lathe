@@ -26,3 +26,15 @@ for i in all_fb_answers:
         print("--------")
     else:
         print("Incorrect")
+
+how_many_mc = input("How many fill in the blank questions would you like? ")
+how_many_mc = int(how_many_mc)
+all_mc_questions = []
+all_mc_answers = []
+for i in range(how_many_fb):
+    prompt_mc = input("What would you like the question to say? ")
+    # response_fb = input( )
+    choices_mc = input("What are the answer choices ")
+    mc_questions = classes.fill_blank(prompt_mc, None, choices_mc)
+    all_mc_questions.append(mc_questions.prompt)
+    all_mc_answers.append(mc_questions.answer)
