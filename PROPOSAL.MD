@@ -12,7 +12,7 @@ The main features in our program will consist of the user writing over and delet
 ## Tuesday - Thursday Daily Goals
 
 ### Tuesday
-By the end of Tuesday, we want to establish the question type classes. Each type of question is going to take various type of formatting in class for later reference, and if this is accomplished early on, this will make the rest of the week much easier. We should also be able to accomplish most of the "creation" process by making 
+By the end of Tuesday, we want to establish the question type classes. Each type of question is going to take various type of formatting in class for later reference, and if this is accomplished early on, this will make the rest of the week much easier. We should also be able to accomplish most of the "creation" process by making use of these classes.
 
 ### Wednesday
 Lathe will be writing code for editing content within the questions, Evan will work on returning the form for the user to review and making various templates from the established classes. 

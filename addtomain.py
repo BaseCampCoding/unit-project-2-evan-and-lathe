@@ -18,8 +18,8 @@ for i in range(how_many_fb):
 print("Here is your quiz")
 
 for question in all_fb_questions:
-    fb_user_question = input(fb_questions.prompt + "\n")
-    if fb_user_question == fb_questions.answer:
-        print ("That's right")
-    else:
-        print("no") 
+    fb_user_question = print(fb_questions.prompt + "\n")
+    # if fb_user_question == fb_questions.answer:
+    #     print ("That's right")
+    # else:
+    #     print("Incorrect") 
