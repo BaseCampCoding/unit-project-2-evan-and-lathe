@@ -1,6 +1,9 @@
 import classes
 import doclear
 import sqlite3
+import json
+con = sqlite3.connect("quizdb.db")
+cur = con.cursor()
 
 print("WELCOME TO QUIZZER")
 
@@ -41,8 +44,8 @@ for i in range(how_many_tf):
             break
         if answer_tf == "False":
             break
-    tf_questions = classes.true_false(prompt_tf, None, answer_tf)
-    all_tf_questions.append(tf_questions)
+    # tf_questions = classes.true_false(prompt_tf, None, answer_tf)
+    all_tf_questions.append(prompt_tf) #(prompt_Tf used to be tf_questions)
     all_tf_answers.append(answer_tf)
 
 
@@ -89,6 +92,15 @@ for a in range(how_many_num):
         print("No")
 
 
+# cur.execute('CREATE TABLE Numerical("Questions" TEXT, "Answers" TEXT)')
+# cur.execute('CREATE TABLE TrueFalse("Questions" TEXT, "Answers" TEXT)')
+strquestions = json.dumps(all_tf_questions)
+stranswers = json.dumps(all_tf_answers)
+
+cur.execute('INSERT INTO Numerical VALUES(?, ?)', (strquestions, stranswers))
+cur.execute('SELECT Questions, Answers FROM Numerical')
+print(cur.fetchall())
+con.commit()
 
 
 
