@@ -43,3 +43,9 @@ class fill_blank:
 
     def fill_blank_answer(self, answer):
         return self == answer
+    
+    def __str__(self):
+        print(f"{self.prompt}, {self.word}, {self.answer}")
+
+    # def __repr__(self):
+    #     return {'prompt':self.prompt, 'word':self.word, 'answer':self.answer}
