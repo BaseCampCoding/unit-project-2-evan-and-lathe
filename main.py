@@ -22,37 +22,75 @@ cur.execute(
 )
 
 how_many_tf = input("How many True/False questions would you like? ")
+how_many_num = input("How any Numerical Questions would you like? ")
 how_many_tf = int(how_many_tf)
+how_many_num = int(how_many_num)
+
 all_tf_questions = []
 all_tf_answers = []
+all_num_questions = []
+all_num_answers = []
+
 for i in range(how_many_tf):
-    prompt_tf = input("What would you like the question to say? ")
+    prompt_tf = input("What would you like the true/false question to say? ")
     # response_tf = input( )
-    answer_tf = input("What is the correct answer? ")
+    while True: 
+        print("Please input either True or False for your answer.")
+        answer_tf = input("What is the correct answer? ")
+        if answer_tf == "True":
+            break
+        if answer_tf == "False":
+            break
     tf_questions = classes.true_false(prompt_tf, None, answer_tf)
     all_tf_questions.append(tf_questions)
     all_tf_answers.append(answer_tf)
 
 
+
+for i in range(how_many_num):
+    prompt_num = input("What would you like the numerical question to say? ")
+    # response_tf = input( )
+    while True:
+        print("Please input a number for your answer.")
+        answer_num = input("What is the correct answer? ")
+        if answer_num.isnumeric() == True:
+            break
+    num_questions = classes.numerical(prompt_num, None, answer_num)
+    all_num_questions.append(num_questions)
+    all_num_answers.append(answer_num)
+
 # Presenting quiz
 Fin = input("Would you like to see the quiz? [Y/N] ")
+print("------" + name + "------")
 Fin.upper()
 if Fin == "Y":
     str(all_tf_questions)
 for i in all_tf_questions:
     print(i)
 
+if Fin == "Y":
+   str(all_num_questions)
+for i in all_num_questions:
+    print(i)
+
 for e in range(how_many_tf):
     answer = input("Answer: ")
-    f = 0
-    is_correct = answer == all_tf_answers[e]
+    if answer == all_tf_answers[e]: 
+        print("Yes")
+    else:
+        print("No")
 
-    while f < how_many_tf:
-        if answer == all_tf_answers[f]:
-            print("Yes")
-            f += 1
-        else:
-            f += 1
+
+for a in range(how_many_num):
+    answer = input("Answer: ")
+    if answer == all_num_answers[a]: 
+        print("Yes")
+    else:
+        print("No")
+
+
+
+
 
 
 # how_many_num = input("How many numerical answer questions would you like?")

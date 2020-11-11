@@ -30,10 +30,13 @@ class numerical:
         self.prompt = prompt
         self.num = num
         self.answer = answer
+        
 
     def num_answer(self, answer):
         return self == answer
-
+        
+    def __str__(self):
+        return "{self.prompt}".format(self=self)
 
 class fill_blank:
     def __init__(self, prompt, word, answer):
