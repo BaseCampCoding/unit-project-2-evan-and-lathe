@@ -53,6 +53,29 @@ how_many_num = input("How any Numerical Questions would you like? ")
 how_many_tf = int(how_many_tf)
 how_many_num = int(how_many_num)
 
+# # fill in the blank questions
+while True:
+    how_many_fb = input("How many fill in the blank questions would you like? ")
+    try:
+        int(how_many_fb)
+    except:
+        print("Please enter a numerical value")
+        continue
+    break
+how_many_fb = int(how_many_fb)
+
+all_fb_questions = []
+all_fb_answers = []
+object_fb_questions = []
+for i in range(how_many_fb):
+    prompt_fb = input("What would you like the fill in the blank question to say? ")
+    # response_fb = input( )
+    answer_fb = input("What is the correct answer? ")
+    fb_questions = classes.fill_blank(prompt_fb, None, answer_fb)
+    all_fb_questions.append([fb_questions.prompt])
+    all_fb_answers.append([fb_questions.answer])
+    object_fb_questions.append([fb_questions])
+
 all_tf_questions = []
 all_tf_answers = []
 all_num_questions = []
@@ -86,9 +109,41 @@ for i in range(how_many_num):
     all_num_questions.append(num_questions)
     all_num_answers.append(answer_num)
 
+# Multiple choice questions
+while True:
+    how_many_mc = input("How many multiple choice questions would you like? ")
+    try:
+        int(how_many_mc)
+    except:
+        print("Please enter a numerical value")
+        continue
+    break
+how_many_mc = int(how_many_mc)
+
+all_mc_questions = []
+all_mc_choices = []
+all_mc_answers = []
+object_mc_questions = []
+
+
+
+for i in range(how_many_mc):
+    prompt_mc = input("What would you like multiple choice the question to say? ")
+    # response_mc = input( )
+    mc_choices = input("What are the answer choices (Including the correct answer): ")
+    answer_mc = input("What is the correct answer: ")
+    mc_questions = classes.multiple_choice(prompt_mc, None, mc_choices, answer_mc)
+    all_mc_choices.append([mc_questions.choices])
+    all_mc_answers.append([mc_questions.answer])
+    all_mc_questions.append([mc_questions.prompt])
+    object_mc_questions.append(mc_questions)
+
 # Presenting quiz
+
+
 Fin = input("Would you like to see the quiz? [Y/N] ")
 print("------" + name + "------")
+print("Answer the questions in chronological order ")
 Fin.upper()
 if Fin == "Y":
     str(all_tf_questions)
@@ -108,12 +163,39 @@ for e in range(how_many_tf):
         print("No")
 
 
+for s in all_fb_questions:
+    print(*s)
+
+# Presenting fill in the blank questions
+for index, i in enumerate(all_fb_answers):
+    fb_user_input = input("\nAnswer:")
+    if fb_user_input in i:
+        print("That's right")
+        print("--------")
+    else:
+        print("Incorrect")
+
 for a in range(how_many_num):
     answer = input("Answer: ")
     if answer == all_num_answers[a]: 
         print("Yes")
     else:
         print("No")
+
+for i, (question,choice) in enumerate(zip(all_mc_questions, all_mc_choices)):
+    print("--------")
+    print(*question) 
+    print(*choice)
+    print("--------")
+    print(" ")
+    
+for index, q in enumerate(all_mc_answers):
+    mc_user_input = input("\nAnswer:")
+    if mc_user_input in q:
+        print("That's right")
+        print("--------")
+    else:
+        print("Incorrect")
 
 
 # cur.execute('CREATE TABLE Numerical("Questions" TEXT, "Answers" TEXT)')

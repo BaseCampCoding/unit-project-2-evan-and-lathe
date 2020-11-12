@@ -1,7 +1,6 @@
 import classes
 import doclear
 import sqlite3
-import pprint
 
 # # fill in the blank questions
 while True:
