@@ -30,7 +30,7 @@ if template.upper() == "YES":
         for i in range(6):
             prompt_tf = input("What would you like the true/false question to say? ")
             while True:
-                print("Please input either True or False for your answer.")
+                print("[Please input either True or False for your answer.]")
                 answer_tf = input("What is the correct answer? ")
                 if answer_tf == "True":
                     break
@@ -161,9 +161,11 @@ for i in all_num_questions:
 for e in range(how_many_tf):
     answer = input("Answer: ")
     if answer == all_tf_answers[e]:
-        print("Yes")
+        print("Correct")
+        print(" ")
     else:
-        print("No")
+        print("Incorrect")
+        print(" ")
 
 
 for s in all_fb_questions:
