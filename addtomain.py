@@ -55,7 +55,7 @@ for i in range(how_many_mc):
     object_mc_questions.append(mc_questions)
 
 ######
-print("Here is your quiz. \nAnswer the questions in chronological order ")
+print("Answer the questions in chronological order ")
 
 for s in all_fb_questions:
     print(*s)
@@ -77,6 +77,7 @@ for i, (question,choice) in enumerate(zip(all_mc_questions, all_mc_choices)):
     print(*question) 
     print(*choice)
     print("--------")
+    print(" ")
     
 for index, q in enumerate(all_mc_answers):
     mc_user_input = input("\nAnswer:")
