@@ -54,13 +54,13 @@ for i in range(how_many_mc):
     all_mc_questions.append([mc_questions.prompt])
     object_mc_questions.append(mc_questions)
 
-# # # presenting quiz
+######
 print("Here is your quiz. \nAnswer the questions in chronological order ")
 
 for s in all_fb_questions:
     print(*s)
 
-
+# Presenting fill in the blank questions
 for index, i in enumerate(all_fb_answers):
     fb_user_input = input("\nAnswer:")
     if fb_user_input in i:
@@ -68,16 +68,14 @@ for index, i in enumerate(all_fb_answers):
         print("--------")
     else:
         print("Incorrect")
+#######
 
-for s in all_mc_questions:
-    print(*s)
-    print(" ")
-    for c in all_mc_choices:
-        print(*c)
+#Presenting Multiple Choice questions
 
-
+for i, (question,choice) in enumerate(zip(all_mc_questions, all_mc_choices)):
+    print(i, question, choice)
+    
 for index, q in enumerate(all_mc_answers):
-
     mc_user_input = input("\nAnswer:")
     if mc_user_input in q:
         print("That's right")
