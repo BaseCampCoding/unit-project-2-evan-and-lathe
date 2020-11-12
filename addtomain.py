@@ -73,7 +73,10 @@ for index, i in enumerate(all_fb_answers):
 #Presenting Multiple Choice questions
 
 for i, (question,choice) in enumerate(zip(all_mc_questions, all_mc_choices)):
-    print(i, question, choice)
+    print("--------")
+    print(*question) 
+    print(*choice)
+    print("--------")
     
 for index, q in enumerate(all_mc_answers):
     mc_user_input = input("\nAnswer:")
