@@ -2,7 +2,11 @@ import classes
 import doclear
 import sqlite3
 import json
+<<<<<<< HEAD
 import sys
+=======
+
+>>>>>>> a3407d7a7d1709350bfd0d0bdc19ed79384d8b9d
 con = sqlite3.connect("quizdb.db")
 cur = con.cursor()
 
@@ -33,21 +37,24 @@ for i in cur.execute("SELECT * FROM Quizes"):
 
 template = input("Would you like to use a template?: ")
 if template.upper() == "YES":
-    choice = input("Type the number of which template you want. \n"
+    choice = input(
+        "Type the number of which template you want. \n"
         "1) 10 multiple choice questions \n"
         "2) 5 fill in the blank questions \n"
         "3) 6 True/False questions. \n"
-        "Choice:  ")
+        "Choice:  "
+    )
     if choice == "3":
         for i in range(6):
             prompt_tf = input("What would you like the true/false question to say? ")
-            while True: 
+            while True:
                 print("Please input either True or False for your answer.")
                 answer_tf = input("What is the correct answer? ")
                 if answer_tf == "True":
                     break
                 if answer_tf == "False":
                     break
+<<<<<<< HEAD
             all_tf_questions.append(prompt_tf) 
             all_tf_answers.append(answer_tf)
 
@@ -66,6 +73,11 @@ if template.upper() == "YES":
             else:
                 print("No")
         sys.exit("Stop")
+=======
+        # tf_questions = classes.true_false(prompt_tf, None, answer_tf)
+        all_tf_questions.append(prompt_tf)  # (prompt_Tf used to be tf_questions)
+        all_tf_answers.append(answer_tf)
+>>>>>>> a3407d7a7d1709350bfd0d0bdc19ed79384d8b9d
 
 elif template.upper() == "NO":
     pass
@@ -74,24 +86,70 @@ elif template.upper() == "NO":
 cb = sqlite3.connect("quizzes.db")
 cur = cb.cursor()
 
-cur.execute(
-    """CREATE TABLE if not exists TFquestions(Prompt TEXT, Response TEXT, Answer TEXT) """
-)
+# cur.execute(
+#     """CREATE TABLE if not exists TFquestions(Prompt TEXT, Response TEXT, Answer TEXT) """
+# )
 
 how_many_tf = input("How many True/False questions would you like? ")
 how_many_num = input("How any Numerical Questions would you like? ")
 how_many_tf = int(how_many_tf)
 how_many_num = int(how_many_num)
 
+<<<<<<< HEAD
 # all_tf_questions = []
 # all_tf_answers = []
 # all_num_questions = []
 # all_num_answers = []
+=======
+# # fill in the blank questions
+while True:
+    how_many_fb = input("How many fill in the blank questions would you like? ")
+    try:
+        int(how_many_fb)
+    except:
+        print("Please enter a numerical value")
+        continue
+    break
+how_many_fb = int(how_many_fb)
+
+# Multiple choice questions
+while True:
+    how_many_mc = input("How many multiple choice questions would you like? ")
+    try:
+        int(how_many_mc)
+    except:
+        print("Please enter a numerical value")
+        continue
+    break
+how_many_mc = int(how_many_mc)
+
+all_mc_questions = []
+all_mc_choices = []
+all_mc_answers = []
+object_mc_questions = []
+
+all_fb_questions = []
+all_fb_answers = []
+object_fb_questions = []
+for i in range(how_many_fb):
+    prompt_fb = input("What would you like the fill in the blank question to say? ")
+    # response_fb = input( )
+    answer_fb = input("What is the correct answer? ")
+    fb_questions = classes.fill_blank(prompt_fb, None, answer_fb)
+    all_fb_questions.append([fb_questions.prompt])
+    all_fb_answers.append([fb_questions.answer])
+    object_fb_questions.append([fb_questions])
+
+all_tf_questions = []
+all_tf_answers = []
+all_num_questions = []
+all_num_answers = []
+>>>>>>> a3407d7a7d1709350bfd0d0bdc19ed79384d8b9d
 
 for i in range(how_many_tf):
     prompt_tf = input("What would you like the true/false question to say? ")
     # response_tf = input( )
-    while True: 
+    while True:
         print("Please input either True or False for your answer.")
         answer_tf = input("What is the correct answer? ")
         if answer_tf == "True":
@@ -99,9 +157,8 @@ for i in range(how_many_tf):
         if answer_tf == "False":
             break
     # tf_questions = classes.true_false(prompt_tf, None, answer_tf)
-    all_tf_questions.append(prompt_tf) #(prompt_Tf used to be tf_questions)
+    all_tf_questions.append(prompt_tf)  # (prompt_Tf used to be tf_questions)
     all_tf_answers.append(answer_tf)
-
 
 
 for i in range(how_many_num):
@@ -116,9 +173,26 @@ for i in range(how_many_num):
     all_num_questions.append(num_questions)
     all_num_answers.append(answer_num)
 
-# Presenting quiz
+
+for i in range(how_many_mc):
+    prompt_mc = input("What would you like multiple choice the question to say? ")
+    # response_mc = input( )
+    mc_choices = input("What are the answer choices (Including the correct answer): ")
+    answer_mc = input("What is the correct answer: ")
+    mc_questions = classes.multiple_choice(prompt_mc, None, mc_choices, answer_mc)
+    all_mc_choices.append([mc_questions.choices])
+    all_mc_answers.append([mc_questions.answer])
+    all_mc_questions.append([mc_questions.prompt])
+    object_mc_questions.append(mc_questions)
+
+
+######### Presenting quiz ##########
+
+
 Fin = input("Would you like to see the quiz? [Y/N] ")
 print("------" + name + "------")
+print("Answer the questions in chronological order ")
+print(" ")
 Fin.upper()
 if Fin == "Y":
     str(all_tf_questions)
@@ -126,41 +200,48 @@ for i in all_tf_questions:
     print(i)
 
 if Fin == "Y":
-   str(all_num_questions)
+    str(all_num_questions)
 for i in all_num_questions:
     print(i)
 
 for e in range(how_many_tf):
     answer = input("Answer: ")
-    if answer == all_tf_answers[e]: 
+    if answer == all_tf_answers[e]:
         print("Yes")
     else:
         print("No")
 
+
+for s in all_fb_questions:
+    print(*s)
+
+# Presenting fill in the blank questions
+for index, i in enumerate(all_fb_answers):
+    fb_user_input = input("\nAnswer:")
+    if fb_user_input in i:
+        print("That's right")
+        print("--------")
+    else:
+        print("Incorrect")
 
 for a in range(how_many_num):
     answer = input("Answer: ")
-    if answer == all_num_answers[a]: 
+    if answer == all_num_answers[a]:
         print("Yes")
     else:
         print("No")
 
+for i, (question, choice) in enumerate(zip(all_mc_questions, all_mc_choices)):
+    print("--------")
+    print(*question)
+    print(*choice)
+    print("--------")
+    print(" ")
 
-# cur.execute('CREATE TABLE Numerical("Questions" TEXT, "Answers" TEXT)')
-# cur.execute('CREATE TABLE TrueFalse("Questions" TEXT, "Answers" TEXT)')
-# strquestions = json.dumps(all_tf_questions)
-# stranswers = json.dumps(all_tf_answers)
-
-# cur.execute('INSERT INTO Numerical VALUES(?, ?)', (strquestions, stranswers))
-# cur.execute('SELECT Questions, Answers FROM Numerical')
-# print(cur.fetchall())
-# con.commit()
-
-
-
-
-# how_many_num = input("How many numerical answer questions would you like?")
-
-# how_many_multiple = input("How many multiple choice questions would you like?")
-
-# how_many_fib = input("How many fill in the blank questions would you like?")
+for index, q in enumerate(all_mc_answers):
+    mc_user_input = input("\nAnswer:")
+    if mc_user_input in q:
+        print("That's right")
+        print("--------")
+    else:
+        print("Incorrect")
