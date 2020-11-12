@@ -12,6 +12,7 @@ while True:
         print("Please enter a numerical value")
         continue
     break
+how_many_fb = int(how_many_fb)
 
 all_fb_questions = []
 all_fb_answers = []
@@ -35,6 +36,7 @@ while True:
         print("Please enter a numerical value")
         continue
     break
+how_many_mc = int(how_many_mc)
 
 all_mc_questions = []
 all_mc_choices = []
