@@ -28,8 +28,6 @@ else:
 how_many_mc = input("How many multiple choice questions would you like? ")
 
 if how_many_mc.isdigit():
-    how_many_mc = how_many_mc(int)
-    how_many_mc = input("How many multiple choice questions would you like? ")
     how_many_mc = int(how_many_mc)
 else:
     print("Please enter a numerical value")
@@ -54,9 +52,11 @@ for i in range(how_many_mc):
 # # # presenting quiz
 print("Here is your quiz. \nAnswer the questions in chronological order ")
 
+for s in all_fb_questions:
+    print(*s)
+
 
 for index, i in enumerate(all_fb_answers):
-    print(all_fb_questions)
     fb_user_input = input("\nAnswer:")
     if fb_user_input in i:
         print("That's right")
@@ -64,10 +64,15 @@ for index, i in enumerate(all_fb_answers):
     else:
         print("Incorrect")
 
-print("\nSee the list below the question for your answer choices")
+for s in all_mc_questions:
+    print(*s)
+    print(" ")
+    for c in all_mc_choices:
+        print(*c)
+
+
 for index, q in enumerate(all_mc_answers):
-    print(all_mc_questions[q])
-    print(all_mc_choices[q])
+
     mc_user_input = input("\nAnswer:")
     if mc_user_input in q:
         print("That's right")
