@@ -4,34 +4,37 @@ import sqlite3
 import pprint
 
 # # fill in the blank questions
-how_many_fb = input("How many fill in the blank questions would you like? ")
-if how_many_fb.isdigit():
-    how_many_fb = int(how_many_fb)
-
-    all_fb_questions = []
-    all_fb_answers = []
-    object_fb_questions = []
-    for i in range(how_many_fb):
-        prompt_fb = input("What would you like the question to say? ")
-        # response_fb = input( )
-        answer_fb = input("What is the correct answer? ")
-        fb_questions = classes.fill_blank(prompt_fb, None, answer_fb)
-        all_fb_questions.append([fb_questions.prompt])
-        all_fb_answers.append([fb_questions.answer])
-        object_fb_questions.append([fb_questions])
-else:
-    print("Please enter a numerical value")
+while True:
     how_many_fb = input("How many fill in the blank questions would you like? ")
+    try:
+        int(how_many_fb)
+    except:
+        print("Please enter a numerical value")
+        continue
+    break
+
+all_fb_questions = []
+all_fb_answers = []
+object_fb_questions = []
+for i in range(how_many_fb):
+    prompt_fb = input("What would you like the question to say? ")
+    # response_fb = input( )
+    answer_fb = input("What is the correct answer? ")
+    fb_questions = classes.fill_blank(prompt_fb, None, answer_fb)
+    all_fb_questions.append([fb_questions.prompt])
+    all_fb_answers.append([fb_questions.answer])
+    object_fb_questions.append([fb_questions])
+
 
 # Multiple choice questions
-
-how_many_mc = input("How many multiple choice questions would you like? ")
-
-if how_many_mc.isdigit():
-    how_many_mc = int(how_many_mc)
-else:
-    print("Please enter a numerical value")
-    how_many_mc = input("How many Multiple choice questions would you like? ")
+while True:
+    how_many_mc = input("How many multiple choice questions would you like? ")
+    try:
+        int(how_many_mc)
+    except:
+        print("Please enter a numerical value")
+        continue
+    break
 
 all_mc_questions = []
 all_mc_choices = []
