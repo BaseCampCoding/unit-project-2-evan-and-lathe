@@ -23,6 +23,8 @@ while True:
     elif correct_input.upper() == "NO":
         continue
 
+doclear.clear()
+
 cur.execute('CREATE TABLE if not exists Quizes(Question TEXT)') 
 cur.execute('INSERT INTO Quizes VALUES("True/False: The answer is either true or false")')
 cur.execute('INSERT INTO Quizes VALUES("Numerical: The answer is a number")')
@@ -55,6 +57,8 @@ if template.upper() == "YES":
             all_tf_answers.append(answer_tf)
 
         Fin = input("Would you like to see the quiz? [Y/N] ")
+
+        doclear.clear()
         print("------" + name + "------")
         Fin.upper()
         if Fin == "Y":
@@ -181,19 +185,21 @@ for i in range(how_many_mc):
 
 
 Fin = input("Would you like to see the quiz? [Y/N] ")
+doclear.clear()
 print("------" + name + "------")
 print("Answer the questions in chronological order ")
 print(" ")
+
 Fin.upper()
 if Fin == "Y":
     str(all_tf_questions)
 for i in all_tf_questions:
-    print(i)
+    print(i + " True or False?")
 
-if Fin == "Y":
-    str(all_num_questions)
-for i in all_num_questions:
-    print(i)
+# if Fin == "Y":
+#     str(all_num_questions)
+# for i in all_num_questions:
+#     print(i)
 
 for e in range(how_many_tf):
     answer = input("Answer: ")
@@ -205,10 +211,10 @@ for e in range(how_many_tf):
         print(" ")
 
 
+# Presenting fill in the blank questions
 for s in all_fb_questions:
     print(*s)
 
-# Presenting fill in the blank questions
 for index, i in enumerate(all_fb_answers):
     fb_user_input = input("\nAnswer:")
     if fb_user_input in i:
@@ -216,6 +222,11 @@ for index, i in enumerate(all_fb_answers):
         print("--------")
     else:
         print("Incorrect")
+
+    if Fin == "Y":
+        str(all_num_questions)
+    for i in all_num_questions:
+        print(i)
 
 for a in range(how_many_num):
     answer = input("Answer: ")
