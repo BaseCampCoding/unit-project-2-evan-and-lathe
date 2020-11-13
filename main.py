@@ -2,11 +2,8 @@ import classes
 import doclear
 import sqlite3
 import json
-<<<<<<< HEAD
 import sys
-=======
 
->>>>>>> a3407d7a7d1709350bfd0d0bdc19ed79384d8b9d
 con = sqlite3.connect("quizdb.db")
 cur = con.cursor()
 
@@ -54,7 +51,6 @@ if template.upper() == "YES":
                     break
                 if answer_tf == "False":
                     break
-<<<<<<< HEAD
             all_tf_questions.append(prompt_tf) 
             all_tf_answers.append(answer_tf)
 
@@ -73,11 +69,9 @@ if template.upper() == "YES":
             else:
                 print("No")
         sys.exit("Stop")
-=======
         # tf_questions = classes.true_false(prompt_tf, None, answer_tf)
         all_tf_questions.append(prompt_tf)  # (prompt_Tf used to be tf_questions)
         all_tf_answers.append(answer_tf)
->>>>>>> a3407d7a7d1709350bfd0d0bdc19ed79384d8b9d
 
 elif template.upper() == "NO":
     pass
@@ -95,12 +89,10 @@ how_many_num = input("How any Numerical Questions would you like? ")
 how_many_tf = int(how_many_tf)
 how_many_num = int(how_many_num)
 
-<<<<<<< HEAD
 # all_tf_questions = []
 # all_tf_answers = []
 # all_num_questions = []
 # all_num_answers = []
-=======
 # # fill in the blank questions
 while True:
     how_many_fb = input("How many fill in the blank questions would you like? ")
@@ -144,7 +136,6 @@ all_tf_questions = []
 all_tf_answers = []
 all_num_questions = []
 all_num_answers = []
->>>>>>> a3407d7a7d1709350bfd0d0bdc19ed79384d8b9d
 
 for i in range(how_many_tf):
     prompt_tf = input("What would you like the true/false question to say? ")
